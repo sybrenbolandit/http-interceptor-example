@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import { StatusService } from '../shared/service/status.service';
+import { of } from 'rxjs';
+
+const statusServiceMockFactory = () => ({
+  getStatus$: of('OK')
+});
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +14,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      providers: [ { provide: StatusService, useFactory: statusServiceMockFactory } ]
     })
     .compileComponents();
   }));
