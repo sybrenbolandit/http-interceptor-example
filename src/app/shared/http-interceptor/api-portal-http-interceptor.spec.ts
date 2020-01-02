@@ -13,7 +13,8 @@ describe('subscription key http interceptor', () => {
                     provide: HTTP_INTERCEPTORS,
                     useClass: SubscriptionKeyInterceptor,
                     multi: true
-                }]
+                }
+            ]
         });
     });
 

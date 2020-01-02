@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SubscriptionKeyInterceptor } from './shared/http-interceptor/api-portal-http-interceptor';
+import { AuthenticateHttpInterceptor } from './shared/http-interceptor/authenticate-http-interceptor';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    LoginComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -19,7 +22,13 @@ import { SubscriptionKeyInterceptor } from './shared/http-interceptor/api-portal
     HttpClientModule,
   ],
   providers: [
+    AuthenticateHttpInterceptor,
     SubscriptionKeyInterceptor,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthenticateHttpInterceptor,
+      multi: true
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: SubscriptionKeyInterceptor,
