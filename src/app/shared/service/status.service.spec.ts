@@ -10,7 +10,7 @@ describe('StatusService', () => {
     });
 });
 
-  it('should be created', () => {
+  test('should be created', () => {
     const service: StatusService = TestBed.get(StatusService);
     expect(service).toBeTruthy();
   });

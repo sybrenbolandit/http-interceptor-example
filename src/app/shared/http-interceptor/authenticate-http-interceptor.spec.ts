@@ -30,7 +30,7 @@ describe('Authenticate http interceptor', () => {
         router = TestBed.get(Router);
     });
 
-    it('should authenticate on a 401 - unauthorized response',
+    test('should authenticate on a 401 - unauthorized response',
         inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
             const navigateSpy = spyOn(router, 'navigate');
 
@@ -42,7 +42,7 @@ describe('Authenticate http interceptor', () => {
             expect(navigateSpy).toHaveBeenCalledWith(['/login']);
     }));
 
-    it('should propagate non authentication errors',
+    test('should propagate non authentication errors',
         inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
             const navigateSpy = spyOn(router, 'navigate');
 
