@@ -18,7 +18,7 @@ describe('subscription key http interceptor', () => {
         });
     });
 
-    it('adds the azure api management subscription key and trace headers',
+    test('adds the azure api management subscription key and trace headers',
         inject([HttpClient, HttpTestingController], (http: HttpClient, httpMock: HttpTestingController) => {
             http.get('/some-api-portal-path').subscribe();
             httpMock.expectOne((request) => {
