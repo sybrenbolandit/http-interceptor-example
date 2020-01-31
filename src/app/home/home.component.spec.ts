@@ -29,4 +29,8 @@ describe('HomeComponent', () => {
   test('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  test('should render properly', () => {
+    expect(fixture).toMatchSnapshot();
+  });
 });
