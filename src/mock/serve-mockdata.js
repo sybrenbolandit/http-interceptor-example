@@ -11,7 +11,7 @@ const CONFIG = {
         port: 3000,
         appPath: 'build/ng-apimock',
         url: '/mocking',
-        mockFilesPath: 'e2e/mocks'
+        mockFilesPath: 'cypress/mocks'
     }
 }
 
